@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300..700&family=Newsreader:opsz,wght@6..72,400..600&display=swap');
+@import 'tailwindcss';
+
+/* Semua warna & font ada di sini. Ubah di satu tempat, seluruh situs ikut berubah. */
+@theme {
+  --font-display: 'Outfit', system-ui, sans-serif;
+  --font-body: 'Newsreader', Georgia, serif;
+
+  --color-silver-50: #f6f7f9;
+  --color-silver-100: #eceef1;
+  --color-silver-200: #dde0e5;
+  --color-silver-300: #c9cdd4;
+  --color-silver-400: #a9afb9;
+  --color-graphite: #262a32;
+  --color-steel: #46689a;
+  --color-steel-light: #9db5d8;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background: var(--color-silver-200);
+    color: var(--color-graphite);
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-steel);
+    outline-offset: 4px;
+  }
+}
+
+/* Jarak kiri-kanan yang konsisten di semua bagian */
+@utility px-gutter {
+  padding-inline: clamp(1.25rem, 5vw, 4rem);
+}
+
+/* Efek baja terpoles untuk teks (dipakai di nama hero) */
+@utility text-metal {
+  background-image: linear-gradient(
+    160deg,
+    #1f232b 0%,
+    #5d6573 32%,
+    #232831 52%,
+    #8a919d 72%,
+    #3a404b 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Perak digosok untuk latar hero */
+@utility bg-brushed {
+  background-image: linear-gradient(
+    115deg,
+    #eceef1 0%,
+    #d6dadf 40%,
+    #e8eaee 58%,
+    #cbd0d7 100%
+  );
+}
